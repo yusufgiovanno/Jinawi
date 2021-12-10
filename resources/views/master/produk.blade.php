@@ -1,9 +1,9 @@
 @extends('template.master')
 @section('tittle', 'Master Bahan')
 @include('master.produk-insert')
-{{-- @foreach ($data as $d)
+@foreach ($data as $d)
     @include('master.produk-update')
-@endforeach --}}
+@endforeach
 @section('content')
     <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
@@ -59,9 +59,9 @@
                                             <td>{{ $d->NamaProduk }}</td>
                                             <td>RP. {{ number_format($biaya, 0, '', '.') }}</td>
                                             <td>
-                                                <a data-toggle="modal" data-target="#myModal{{$d->idProduk}}">
+                                                <button class="btn"  data-toggle="modal" data-target="#myModal{{$d->idProduk}}">
                                                     <i class="fa fa-edit text-info"></i>
-                                                </a>
+                                                </button>
                                                 <a href="/master-produk/delete/{{ $d->idProduk }}"
                                                     onclick="confirm('Apakah Anda Yakin Untuk Menghapus?')">
                                                     <i class="fa fa-remove"></i>

@@ -48,8 +48,6 @@ class CProduk extends Controller
         $prod->BiayaLabor   = $r->labor;
         $prod->Packaging    = $r->packaging;
         $prod->Sticker      = $r->sticker;
-        $prod->KeteranganId = $r->keterangan;
-        $prod->Status       = 0;
 
         $prod->save();
 
@@ -76,9 +74,28 @@ class CProduk extends Controller
         //
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $r)
     {
-        //
+        //return $r->input();
+        $prod = Produk::find($r->id);
+        $prod->KodeProduk   = $r->kode;
+        $prod->NamaProduk   = $r->nama;
+        $prod->BiayaLabor   = $r->labor;
+        $prod->Packaging    = $r->packaging;
+        $prod->Sticker      = $r->sticker;
+        $prod->save();
+
+        Resep::where('ProdukId', $r->id)->delete();
+
+        for ($i = 0; $i<count($r->bahan); $i++){
+            $resep = new Resep();
+            $resep->ProdukId  = $prod->idProduk;
+            $resep->BahanId   = $r->bahan[$i];
+            $resep->Kuantitas = $r->jumlah[$i];
+            $resep->save();
+        }
+
+        return redirect('master-produk');
     }
 
     public function destroy($id)

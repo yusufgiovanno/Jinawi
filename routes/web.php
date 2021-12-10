@@ -37,3 +37,4 @@ Route::get ('/master-produk/delete/{id}',   [CProduk::class,    'destroy']);
 Route::get ('/penjualan',                   [CPenjualan::class, 'index'  ]);
 Route::post('/penjualan/insert',            [CPenjualan::class, 'store'  ]);
 Route::get ('/penjualan/complete/{id}',     [CPenjualan::class, 'edit'   ]);
+Route::get ('/penjualan-data',              [CPenjualan::class, 'data'   ]);
