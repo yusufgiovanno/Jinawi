@@ -1,0 +1,11 @@
+Produk
++Bahan
+- Harga Satuan (Satuan bahan)
+- Subtotal (HPP Bahan)
++Produk
+-Harga Jual
+
+Lap Penjualan -> Judul
+Urutan Kolom : No, Tanggal, Pembeli, Produk, Harga, Jumlah, Total, Keterangan, Status, HPP, Labor, Profit
+Profit : Total - HPP
+Merge : No, Tanggal, Customer
